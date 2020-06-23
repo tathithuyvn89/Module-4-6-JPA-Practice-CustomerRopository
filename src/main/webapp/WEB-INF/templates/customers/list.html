@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/customers/layout :: head">
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+</head>
+<body>
+
+<a href="/create-customer">Create Customer</a>
+<h1>Customers</h1>
+<table >
+    <tr>
+        <td>Fist Name</td>
+        <td>Last Name</td>
+    </tr>
+    <th:block th:each="customer:${customers}">
+        <tr>
+            <td th:text="${customer.getFistName()}"></td>
+            <td th:text="${customer.getLastName()}"></td>
+        </tr>
+    </th:block>
+</table>
+<footer th:replace="customers/layout :: footer"></footer>
+</body>
+</html>
